@@ -5,7 +5,19 @@ const port = 3000;
 
 app.get('/:termo', async (req, res) => {
     const id = req.params.termo;
-  res.send(`Termo do twitter ${id}`);
+    const python = spawn('python', ['getTwiiter.py', id]);
+    let dataToSend;
+    python.stdout.on('data', function (data) {
+      console.log('Pipe data from python script ...',data);
+      dataToSend = data.toString();
+     });
+
+     python.on('close', (code) => {
+      console.log(`child process close all stdio with code ${code}`);
+      // send data to browser
+      res.send(dataToSend)
+      });
+
 });
 
 app.listen(port, () => {
