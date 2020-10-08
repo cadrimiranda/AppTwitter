@@ -15,6 +15,7 @@ import numpy as np
 #args["teste"]
 
 
+
 class Twitter:
     def __init__(self):
         print(sys.argv[1])
