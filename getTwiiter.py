@@ -18,7 +18,7 @@ import numpy as np
 
 class Twitter:
     def __init__(self):
-        print(sys.argv[1])
+        #print(sys.argv[1])
         self.search_term = sys.argv[1]
 
     def processar(self):
@@ -29,10 +29,10 @@ class Twitter:
         count = 0
         for line in response.iter_lines():
             try:
-                if count > 10:
+                if count > 500:
                     break
                 post = json.loads(line.decode('utf-8'))
-                print(count)
+                #print(count)
                 contents = post['text']
                 count += 1
                 tweets.append(str(contents))
