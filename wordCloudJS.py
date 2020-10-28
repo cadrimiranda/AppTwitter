@@ -122,8 +122,9 @@ class WC:
             words = nltk.word_tokenize(sample)
             bag_words = self.normalize(words) + bag_words
 
-        brasil = np.load('mask.npy')
+        cloud = np.load('mask.npy')
         #print(len(bag_words))
-        wordcloud = WordCloud(background_color = 'white', mask = brasil, max_words=500).generate((" ").join(bag_words))
+        #
+        wordcloud = WordCloud(background_color = 'white',mask = cloud, max_words=500).generate((" ").join(bag_words))
         return wordcloud
         

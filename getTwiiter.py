@@ -29,7 +29,7 @@ class Twitter:
         count = 0
         for line in response.iter_lines():
             try:
-                if count > 500:
+                if count > 10:
                     break
                 post = json.loads(line.decode('utf-8'))
                 #print(count)
