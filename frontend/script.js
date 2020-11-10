@@ -6,6 +6,7 @@ const classes = {
 
 function chamarApi() {
   const input = document.getElementById('input');
+  const inputLength = document.getElementById('length');
 
   const loaderBackdrop = document.getElementById('loader-backdrop');
   loaderBackdrop.style.display = 'flex';
@@ -30,7 +31,7 @@ function chamarApi() {
   const loadImage = document.getElementById('loader-image');
   loadImage.textContent = `Buscando twitter relacionados sobre ${input.value}`;
 
-  fetch(`http://localhost:3000/${input.value}`)
+  fetch(`http://localhost:3000/${input.value}/${inputLength.value}`)
     .then((res) => {
       return res.text();
     })
@@ -50,4 +51,17 @@ function handleKeyDown(e) {
     chamarApi();
   }
 
+}
+
+function handleKeyDownLength(e){
+  console.log(e.target.value);
+  const valor = parseInt(e.target.value,10);
+  const inputLength = document.getElementById('length');
+
+  if(valor>1000){
+    inputLength.value = 1000;
+  }
+  if(valor<1){
+    inputLength.value = 1;
+  }
 }

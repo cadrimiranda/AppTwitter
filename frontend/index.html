@@ -24,10 +24,13 @@
     <![endif]-->
   <header class="header">
     <div class="grid">
-      <div class="input-search">
-        <input id="input" onkeydown="return handleKeyDown(event)"
+      <div class="grid-inputs-search">
+        <input id='length' class="input-length" placeholder="1" type="number" max="1000" min="1" value="1" 
+        onkeyup="return handleKeyDownLength(event)"
+        />
+        <input id="input" class="input-search" onkeydown="return handleKeyDown(event)"
           placeholder="Pesquise alguma coisa no twitter ai manolo ..." />
-        <button onclick="chamarApi()">Pesquisar</button>
+        <button class='button-search' onclick="chamarApi()">Pesquisar</button>
       </div>
     </div>
   </header>

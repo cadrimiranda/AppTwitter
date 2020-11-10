@@ -3,6 +3,14 @@ body {
   margin: 0;
 }
 
+input{
+  border: none;
+}
+
+input:focus{
+  outline: none;
+}
+
 .header {
   background-color: rgb(29, 161, 242);
   height: 200px;
@@ -26,13 +34,13 @@ body {
   height: 100%;
 }
 
-.input-search {
+.grid-inputs-search {
   display: flex;
   border-radius: 10px;
   height: 50px;
 }
 
-.input-search > input {
+.input-search{
   width: 300px;
   border: none;
   height: 80%;
@@ -43,11 +51,7 @@ body {
   height: 100%;
 }
 
-.input-search > input:focus {
-  outline: none;
-}
-
-.input-search > button {
+.button-search {
   height: 100%;
   border: none;
   border-radius: 0 9px 9px 0;
@@ -59,7 +63,7 @@ body {
   cursor: pointer;
 }
 
-.input-search > button:focus {
+.button-search:focus {
   outline: none;
 }
 
@@ -118,4 +122,12 @@ body {
 .loader-image {
   font-size: 16px;
   text-transform: uppercase;
+}
+
+
+.input-length{
+  width: 70px;
+  border-radius: 10px;
+  margin-right: 5px;
+  text-align: center;
 }

@@ -23,7 +23,8 @@ class Twitter:
     def __init__(self):
         # print(sys.argv[1])
         self.search_term = sys.argv[1]
-
+        self.search_length = int(sys.argv[2])
+        
     def processar(self):
         filter_url = 'https://stream.twitter.com/1.1/statuses/filter.json?track='+self.search_term
         auth = requests_oauthlib.OAuth1(
@@ -33,7 +34,7 @@ class Twitter:
         count = 0
         for line in response.iter_lines():
             try:
-                if count > 2:
+                if count > self.search_length:
                     break
                 post = json.loads(line.decode('utf-8'))
                 # print(count)

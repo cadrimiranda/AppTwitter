@@ -10,11 +10,12 @@ app.listen(port, () => {
   console.log('Example app listening at http://localhost:${port}');
 });
 
-app.get('/:termo', async (req, res) => {
+app.get('/:termo/:quantidade', async (req, res) => {
   const id = req.params.termo;
-  console.log('nova requisição com: ', id);
+  const count = req.params.quantidade;
+  console.log('nova requisição com ', id,' com quantidade ', count);
 
-  const python = spawn('python', [path.join(__dirname, 'getTwiiter.py'), id]);
+  const python = spawn('python', [path.join(__dirname, 'getTwiiter.py'), id, count]);
   let dataToSend = '';
 
   python.stdout.on('data', function (arrBytes) {
