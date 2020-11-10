@@ -97,6 +97,7 @@ body {
 .wordcloud-result-image {
   margin: 10px 1% 20px;
   height: auto;
+  width: 40%;
   border: 1px solid #eaeaea;
   border-radius: 15px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
