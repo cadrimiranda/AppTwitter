@@ -33,7 +33,7 @@ class Twitter:
         count = 0
         for line in response.iter_lines():
             try:
-                if count > 50:
+                if count > 2:
                     break
                 post = json.loads(line.decode('utf-8'))
                 # print(count)
@@ -46,7 +46,6 @@ class Twitter:
         self.tweets_series = pd.Series(tweets, name='tweets')
 
     def callWC(self):
-        print('aqui')
         wc = WC(self.tweets_series)
         img = wc.processWC()
         # print(type(img))
